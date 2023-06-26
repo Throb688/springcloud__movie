@@ -1,0 +1,42 @@
+server:
+  port: 9054
+
+
+spring:
+  web:
+    resources:
+      cache:
+        cachecontrol:
+          no-store: true
+          no-cache: true
+        use-cache: false
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB  # 设置适当的文件大小限制
+      max-request-size: 10MB  # 设置适当的请求大小限制
+  application:
+    name: movie-consumer
+  cloud:
+    nacos:
+      server-addr:  127.0.0.1:8848
+      discovery:
+        username: nacos
+        password: nacos
+        namespace: public
+logging:
+  level:
+    com.example.hzsfeign.Clients.MovieClients: DEBUG
+
+feign:
+  feign:
+    client:
+      config:
+        MovieService:
+          loggerLevel: BASIC
+          # 连接超时时间，默认是2s
+          connectTimeout: 5000
+          # 请求处理超时时间，默认是5s
+          readTimeout: 3000
+  enabled: true
+

@@ -1,0 +1,30 @@
+server:
+  port: 9053
+
+
+spring:
+  application:
+    name: seat-consumer
+  cloud:
+    nacos:
+      server-addr:  127.0.0.1:8848
+      discovery:
+        username: nacos
+        password: nacos
+        namespace: public
+logging:
+  level:
+    com.example.hzsfeign.Clients.SeatClients: debug
+
+feign:
+  feign:
+    client:
+      config:
+        SeatService:
+          loggerLevel: BASIC
+          # 连接超时时间，默认是2s
+          connectTimeout: 5000
+          # 请求处理超时时间，默认是5s
+          readTimeout: 3000
+  enabled: true
+
