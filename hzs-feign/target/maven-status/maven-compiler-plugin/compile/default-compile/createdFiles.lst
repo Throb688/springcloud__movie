@@ -1,0 +1,11 @@
+com\example\hzsfeign\Config\FeignClientLoggingConfig.class
+com\example\hzsfeign\Clients\SessionClients.class
+com\example\hzsfeign\Clients\impl\UserClientServiceImpl.class
+com\example\hzsfeign\Clients\SeatClients.class
+com\example\hzsfeign\Clients\OrderClients.class
+com\example\hzsfeign\Clients\UserClients.class
+com\example\hzsfeign\Clients\impl\SeatClientsServiceImpl.class
+com\example\hzsfeign\Clients\impl\SessionClientsImpl.class
+com\example\hzsfeign\Clients\impl\MovieClientsServiceImpl.class
+com\example\hzsfeign\Clients\impl\OrderClientsServiceImpl.class
+com\example\hzsfeign\Clients\MovieClients.class
