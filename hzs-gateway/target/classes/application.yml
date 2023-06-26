@@ -1,0 +1,46 @@
+server:
+  port: 8088
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        username: nacos
+        password: nacos
+    gateway:
+      routes:
+        - id: user-consumer
+          uri: lb://user-consumer
+          predicates:
+            - Path=/user/**
+          filters:
+            - StripPrefix=1
+        - id: session-consumer
+          uri: lb://session-consumer
+          predicates:
+            - Path=/session/**
+          filters:
+            - StripPrefix=1
+        - id: seat-consumer
+          uri: lb://seat-consumer
+          predicates:
+            - Path=/seat/**
+          filters:
+            - StripPrefix=1
+        - id: order-consumer
+          uri: lb://order-consumer
+          predicates:
+            - Path=/order/**
+          filters:
+            - StripPrefix=1
+        - id: movie-consumer
+          uri: lb://movie-consumer
+          predicates:
+            - Path=/movie/**
+          filters:
+            - StripPrefix=1
+    sentinel:
+      transport:
+        dashboard: http://localhost:8333/
