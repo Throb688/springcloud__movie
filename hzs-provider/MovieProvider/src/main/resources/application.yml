@@ -1,0 +1,19 @@
+server:
+  port: 9095
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB  # 设置适当的文件大小限制
+      max-request-size: 10MB  # 设置适当的请求大小限制
+  application:
+    name: MovieService
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/movie
+    username: root
+    password: 123456
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
